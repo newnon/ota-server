@@ -20,7 +20,7 @@ function currentUrl()
 	$pageURL .= "://";
 	$path = str_replace('/index.php', '', $_SERVER['SCRIPT_NAME']);
 	if ($_SERVER["SERVER_PORT"] != "80") {
-		$pageURL .= $_SERVER["SERVER_NAME"] . $path . ":" . $_SERVER["SERVER_PORT"];
+		$pageURL .= $_SERVER["SERVER_NAME"] . ":" . $_SERVER["SERVER_PORT"] . $path;
 	} else {
 		$pageURL .= $_SERVER["SERVER_NAME"] . $path;
 	}
