@@ -41,7 +41,7 @@
             <script type="text/javascript">
                 $(function () {
                     $(".btn-delete").on('click', function () {
-                        if ( !confirm('Confirmer la suppression ?') ){
+                        if ( !confirm('Confirm deletion ?') ){
                             return;
                         }
                         var elt = $(this);
@@ -52,7 +52,7 @@
                             success: function (data) {
                                 elt.parent().remove();
                             }, failure: function (message) {
-                                alert('Une erreur est survenue');
+                                alert('An error has occurred');
                                 console.log("UPLOAD ERR : ", message);
                             }
                         });

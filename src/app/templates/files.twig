@@ -10,7 +10,7 @@
 
     {% block content %}
         {% if folder.hasFolders() == false and folder.hasFiles() == false %}
-            <p align="center">Oups.. il n'y a rien ici</p>
+            <p align="center">Oops .. there is nothing here</p>
         {% endif %}
 
         {% if folder.hasFolders() %}
@@ -29,7 +29,7 @@
             <div data-role="collapsible" data-theme="b" data-content-theme="d" data-collapsed-icon="arrow-r"
                  data-collapsed="false"
                  data-expanded-icon="arrow-d" data-inset="false">
-                <h2>Fichiers</h2>
+                <h2>Files</h2>
                 <ul data-role="listview">
                     {% for file in folder.getFiles() %}
                         <li><a target="_blank" href="{{ file.getUrl() }}">{{ file.getName() }}</a></li>

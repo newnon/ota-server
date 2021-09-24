@@ -11,16 +11,16 @@
 </head>
 <body>
 <div class="container">
-    <h2>Upload de fichier</h2>
+    <h2>Upload file</h2>
 
     <form method="post" action="#" enctype="multipart/form-data" class="form-horizontal">
 
         <div class="control-group">
-            <label class="control-label" for="inputPlateforme">Choix de la plateforme</label>
+            <label class="control-label" for="inputPlateforme">Choice of the platform</label>
 
             <div class="controls">
                 <select id="plateforme">
-                    {% for plateforme in plateformes %}
+                    {% for platform in platforms %}
                         <option value="{{ plateforme.id }}">{{ plateforme.nom }}</option>
                     {% endfor %}
                 </select>
@@ -30,7 +30,7 @@
 
         <div class="dossiers">
             <div class="control-group dossier-group">
-                <label class="control-label" for="inputPlateforme">Dossier</label>
+                <label class="control-label" for="inputPlateforme">Folder</label>
 
                 <div class="controls">
                     <select class="dossier">
@@ -38,7 +38,7 @@
                     </select>
                     <a href="#" class="dossier_ok btn">ok</a>
                 <span class="nouvelle_application">
-                    ou un chemin
+                    or a path
                     <input type="text" name="application" class="input" placeholder="nom du dossier"/>
                 </span>
                 </div>
@@ -58,7 +58,7 @@
 
         <div class="form-actions">
             <input type="hidden" name="MAX_FILE_SIZE" value="52428800">
-            <input type="submit" value="Envoyer" class="btn btn-primary">
+            <input type="submit" value="Send" class="btn btn-primary">
         </div>
 
 
@@ -87,7 +87,7 @@
             if (!application) {
                 application = $.trim($("#nouvelle_application input").val());
                 if (!application) {
-                    throw {'message': 'Merci de choisir une application'};
+                    throw {'message': 'Thank you to choose an application'};
                 }
             }
             return application;
@@ -105,7 +105,7 @@
                 });
                 var url = 'apps/' + getCurrentPlateforme() + '/' + dossiers.join('/');
                 if ($.trim($("#file").val()) == '') {
-                    throw {'message': 'Merci de choisir un fichier apk ou ipa'};
+                    throw {'message': 'Thank you for choosing an apk or ipa file'};
                 }
 
                 $("form").attr('action', url);
@@ -158,7 +158,7 @@
                     $.each(folder.folders, function (index, value) {
                         select.append($('<option>').text(value).attr('value', value));
                     });
-                    select.append($('<option>').text('ajouter...').attr('value', ''));
+                    select.append($('<option>').text('add...').attr('value', ''));
                     $(".dossiers").append(nouveauGroupe);
 
                 });
@@ -172,7 +172,7 @@
             var name = file.name;
             var extension = name.split('.').pop();
             if (extension != 'apk' && extension != 'ipa') {
-                alert('Désolé, seuls les fichiers .apk et .ipa sont autorisés');
+                alert('Sorry, only .apk and .ipa files are allowed');
                 $(this).val("");
             }
         };

@@ -27,12 +27,12 @@ class PlateformeIOS extends Plateforme
             $app->response()->body('<html>
 			<head>
 			<meta name="viewport" content="initial-scale=1, maximum-scale=1">
-			<title>Redirection en cours</title>
+			<title>Redirection in progress</title>
 			</head>
 			<body style="text-align: center">
-			<h1>redirection en cours</h1>
-			<a href="' . $url . '">cliquer ici pour installer l\'application</a><br /><br />
-			<a href="' . currentUrl().'/datas/'.$File->getPath() . '">cliquer ici pour télécharger le fichier IPA</a>
+			<h1>redirection in progress</h1>
+			<a href="' . $url . '">click here to install application</a><br /><br />
+			<a href="' . currentUrl().'/datas/'.$File->getPath() . '">click here to download the file IPA</a>
 			<script type="text/javascript">
 				setTimeout(function(){
 					window.location.href = "' . $url . '";
@@ -57,12 +57,12 @@ class PlateformeIOS extends Plateforme
                 }
                 $zip->close();
             } else {
-                $app->halt(500, 'Impossible de lire le fichier IPA');
+                $app->halt(500, 'Can not read the file IPA');
                 die();
             }
 
             if (trim($plistContent) == '' || $plistContent === false) {
-                $app->halt(500, 'Contenu du pList vide');
+                $app->halt(500, 'Content of empty pList');
                 die();
             }
 

@@ -33,10 +33,10 @@ $app->group('/apps', function () use ($app) {
 			if ($app->request()->getReferer() == toUrl('/upload')) {
 				$app->redirect(toUrl('/upload'));
 			} else {
-				$app->halt(201, 'Fichier ajout&eacute;');
+				$app->halt(201, 'File created;');
 			}
 		} else {
-			$app->halt(403, 'Une erreur est survenue pendant l\'upload, merci de re-essayer');
+			$app->halt(403, 'An error occurred during the upload, l\' please try again');
 		}
 	});
 

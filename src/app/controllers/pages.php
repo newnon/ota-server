@@ -16,7 +16,7 @@ $app->get('/upload', function () use ($app) {
 $app->get('/delete(/:dossiers+?)', function ($dossiers = null) use ($app) {
     $path = '';
     $parentPath = '';
-    $parentName = 'Accueil';
+    $parentName = 'Home';
     $folderName = '';
 
     if (is_array($dossiers)) {

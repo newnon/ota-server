@@ -21,7 +21,7 @@ class BaseFolder extends Folder
 
 	public function getName()
 	{
-		return 'accueil';
+		return 'Home';
 	}
 
 	public function getParent()
