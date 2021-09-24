@@ -11,6 +11,12 @@ class File extends Resource
 
 	public function getUrl()
 	{
+		$plateform = $this->getPlateforme();
+		if(strcasecmp($plateform->id, "android") === 0)
+		{
+			return $this->getDownloadUrl();
+		}
+
 		return toUrl("dl/" . $this->getPath());
 	}
 
