@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block header %}
-    <h1>{{ isRootFolder ? "Dossiers" : folderName }}</h1>
+    <h1>{{ isRootFolder ? "Files" : folderName }}</h1>
 {% endblock %}
 
     {% block content %}
@@ -61,7 +61,7 @@
                 });
             </script>
         {% else %}
-            <h3 align="center">Aucun dossier</h3>
+            <h3 align="center">No records</h3>
         {% endif %}
 
 
