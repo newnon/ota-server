@@ -46,6 +46,11 @@ class File extends Resource
 		return toUrl('datas/'.$this->getPath());
 	}
 
+		public function getDownloadUrlWithCredential()
+	{
+		return toUrlWithCredential('datas/'.$this->getPath());
+	}
+
 	public function isFolder()
 	{
 		return false;

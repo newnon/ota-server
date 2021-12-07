@@ -11,6 +11,11 @@ function toUrl($path = '')
 	return currentUrl() . '/' . ltrim($path, '/');
 }
 
+function toUrlWithCredential($path = '')
+{
+	return currentUrlWithCredential() . '/' . ltrim($path, '/');
+}
+
 function currentUrl()
 {
 	$pageURL = 'http';
@@ -23,6 +28,23 @@ function currentUrl()
 		$pageURL .= $_SERVER["SERVER_NAME"] . ":" . $_SERVER["SERVER_PORT"] . $path;
 	} else {
 		$pageURL .= $_SERVER["SERVER_NAME"] . $path;
+	}
+
+	return $pageURL;
+}
+
+function currentUrlWithCredential()
+{
+	$pageURL = 'http';
+	if (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") {
+		$pageURL .= "s";
+	}
+	$pageURL .= "://";
+	$path = str_replace('/index.php', '', $_SERVER['SCRIPT_NAME']);
+	if ($_SERVER["SERVER_PORT"] != "80") {
+		$pageURL .= $_SERVER["PHP_AUTH_USER"]. ":" . $_SERVER["PHP_AUTH_PW"] . "@" . $_SERVER["SERVER_NAME"] . ":" . $_SERVER["SERVER_PORT"] . $path;
+	} else {
+		$pageURL .= $_SERVER["PHP_AUTH_USER"]. ":" . $_SERVER["PHP_AUTH_PW"] . "@" . $_SERVER["SERVER_NAME"] . $path;
 	}
 
 	return $pageURL;
