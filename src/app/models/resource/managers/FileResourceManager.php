@@ -65,7 +65,7 @@ class FileResourceManager implements ResourceManager
 			$elements[] = $element;
 		}
 		uasort($elements, function ($a, $b){
-		    return filemtime($a->getFullPath()) > filemtime($b->getFullPath());
+		    return filemtime($a->getFullPath()) < filemtime($b->getFullPath());
         });
 
 		return $elements;
@@ -86,7 +86,7 @@ class FileResourceManager implements ResourceManager
 			$elements[] = $element;
 		}
         uasort($elements, function ($a, $b){
-            return filemtime($a->getFullPath()) > filemtime($b->getFullPath());
+            return filemtime($a->getFullPath()) < filemtime($b->getFullPath());
         });
 
 		return $elements;
