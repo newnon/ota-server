@@ -64,6 +64,10 @@ class FileResourceManager implements ResourceManager
 			$element = ResourceFactory::fromPath($path.DIRECTORY_SEPARATOR.$object->getFilename());
 			$elements[] = $element;
 		}
+		uasort($elements, function ($a, $b){
+		    return filemtime($a->getFullPath()) > filemtime($b->getFullPath());
+        });
+
 		return $elements;
 	}
 
@@ -81,6 +85,10 @@ class FileResourceManager implements ResourceManager
 			$element = ResourceFactory::fromPath($name);
 			$elements[] = $element;
 		}
+        uasort($elements, function ($a, $b){
+            return filemtime($a->getFullPath()) > filemtime($b->getFullPath());
+        });
+
 		return $elements;
 	}
 
