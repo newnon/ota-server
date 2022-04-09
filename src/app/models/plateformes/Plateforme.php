@@ -2,6 +2,7 @@
 
 require_once DIR . '/app/models/plateformes/PlateformeAndroid.php';
 require_once DIR . '/app/models/plateformes/PlateformeIOS.php';
+require_once DIR . '/app/models/plateformes/PlateformeWebGL.php';
 require_once DIR . '/app/models/plateformes/PlateformeWindowsPhone.php';
 
 abstract class Plateforme
@@ -39,6 +40,7 @@ abstract class Plateforme
 			new PlateformeIOS(),
 			new PlateformeAndroid(),
 //            new PlateformeWindowsPhone()
+            new PlateformeWebGL(),
 		);
 
 	}

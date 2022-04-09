@@ -1,3 +1,5 @@
 src/datas/ios/*
 src/datas/android/*
 src/datas/wp/*
+src/datas/webgl/*
+.idea/
