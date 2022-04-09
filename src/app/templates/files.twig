@@ -20,7 +20,13 @@
                     <li>
                         <a data-ajax="false" href="{{ dossier.getUrl() }}">
                             &#9654; {{ dossier.getName() }}
-                        </a></li>
+                        </a>
+                        {% if folder.getName() == "webgl" %}
+                        <a data-ajax="false" href="{{ dossier.getUrl()|replace({'/apps/': "/dl/"})}}/index.html">
+                            Launch
+                        </a>
+                        {% endif %}
+                    </li>
                 {% endfor %}
             </ul>
         {% endif %}
