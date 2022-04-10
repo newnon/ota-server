@@ -20,6 +20,7 @@
                     <li>
                         <a data-ajax="false" href="{{ dossier.getUrl() }}">
                             &#9654; {{ dossier.getName() }}
+                            <div style="float: right">{{ dossier.getCreated() }}</div>
                         </a>
                         {% if folder.getName() == "webgl" %}
                         <a data-ajax="false" href="{{ dossier.getUrl()|replace({'/apps/': "/dl/"})}}/index.html">
@@ -38,7 +39,12 @@
                 <h2>Files</h2>
                 <ul data-role="listview">
                     {% for file in folder.getFiles() %}
-                        <li><a target="_blank" href="{{ file.getUrl() }}">{{ file.getName() }}</a></li>
+                        <li>
+                            <a target="_blank" href="{{ file.getUrl() }}">
+                                {{ file.getName() }}
+                                <div style="float: right">{{ file.getCreated() }}</div>
+                            </a>
+                        </li>
                     {% endfor %}
                 </ul>
             </div>
