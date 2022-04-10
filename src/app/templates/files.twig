@@ -40,11 +40,10 @@
                 <ul data-role="listview">
                     {% for file in folder.getFiles() %}
                         <li>
-                            <a target="_blank" href="{{ file.getUrl() }}">
-                                {{ file.getName() }}
-                                &nbsp;&nbsp;&nbsp;&nbsp;
-                                {{ file.getSize() }} MB
-                                <div style="float: right">{{ file.getCreated() }}</div>
+                            <a style="clear: both" target="_blank" href="{{ file.getUrl() }}">
+                                <div style="float: left">{{ file.getName() }}</div>
+                                <div style="float: right; padding-left: 20px;">{{ file.getCreated() }}</div>
+                                <div style="float: right">{{ file.getSize() }} MB</div>
                             </a>
                         </li>
                     {% endfor %}
