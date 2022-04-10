@@ -69,4 +69,11 @@ class File extends Resource
             ->setTimezone(new \DateTimeZone("Europe/Moscow"))
         )->format("d.m.Y");
     }
+
+    public function getSize(): string
+    {
+        $filesize = filesize($this->getFullPath()); // bytes
+
+        return round($filesize / 1024 / 1024, 2);
+    }
 }
