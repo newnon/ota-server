@@ -36,6 +36,19 @@ class Folder extends Resource
 		return $this->childs;
 	}
 
+    public function getCreated(): string
+    {
+        $ctime = filemtime($this->getFullPath());
+        if (!$ctime) {
+            throw new \Exception(sprintf("invalid mtime for file: %s", $this->getFullPath()));
+        }
+
+        return \DateTimeImmutable::createFromMutable(
+            (new \DateTime())
+                ->setTimestamp($ctime)
+                ->setTimezone(new \DateTimeZone("Europe/Moscow"))
+        )->format("d.m.Y");
+    }
 
 	private function getChilds()
 	{
